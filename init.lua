@@ -1,3 +1,2 @@
-require("qh_yamamoto.core")
-require("qh_yamamoto.lazy")
-
+require("core")
+require("lazy-settings")
