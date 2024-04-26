@@ -1,6 +1,8 @@
 return {
 	"mg979/vim-visual-multi",
 	init = function()
+		vim.g.VM_theme = "purplegray"
+
 		local VM_maps = {}
 		VM_maps["Select Cursor Down"] = "<M-j>"
 		VM_maps["Select Cursor Up"] = "<M-k>"
