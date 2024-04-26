@@ -10,8 +10,16 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
-
-opt.wrap = false
+opt.list = true -- make all white chars visible
+opt.listchars = { -- setting for each white chars
+	tab = "|-",
+	space = "･",
+	trail = "･",
+	eol = "↲",
+	extends = "»",
+	precedes = "«",
+	nbsp = "%",
+}
 
 -- search settings
 opt.ignorecase = true
