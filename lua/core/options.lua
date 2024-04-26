@@ -30,11 +30,8 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.winblend = 0
 opt.pumblend = 0
--- opt.background = "dark"
--- opt.signcolumn = "yes"
-
-opt.backspace = "indent,eol,start"
-
+-- hogeskakdsayvdsaop
+-- hogeskakdsayvdsaop
 opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
