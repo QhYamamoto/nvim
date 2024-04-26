@@ -39,3 +39,10 @@ opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true
+
+opt.whichwrap:append({
+	["<"] = true,
+	[">"] = true,
+	["["] = true,
+	["]"] = true,
+})
