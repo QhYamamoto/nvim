@@ -4,11 +4,6 @@ return {
 	config = function()
 		require("one_monokai").setup({
 			transparent = true,
-			themes = function()
-				return {
-					TabLineFill = { bg = "NONE" },
-				}
-			end,
 		})
 
 		vim.cmd("colorscheme one_monokai")
