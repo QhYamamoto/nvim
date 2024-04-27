@@ -6,6 +6,7 @@ local keymap = vim.keymap
 keymap.set({ "i", "v", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("i", "ppp", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set({ "n", "v" }, "d", '"_d') -- prevent to yank on delete
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
