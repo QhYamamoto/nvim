@@ -1,5 +1,19 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+-- register autocmds
+vim.api.nvim_create_augroup("lua", {})
+
+vim.api.nvim_create_autocmd({
+	"InsertLeave",
+	"CmdlineLeave",
+}, {
+	group = "lua",
+	callback = function()
+		os.execute("$zenhan 0 > /tmp/output 2>&1")
+	end,
+})
+
+-- vim options
 local opt = vim.opt
 
 opt.relativenumber = true
@@ -30,8 +44,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.winblend = 0
 opt.pumblend = 0
--- hogeskakdsayvdsaop
--- hogeskakdsayvdsaop
+
 opt.clipboard:append("unnamedplus")
 
 opt.splitright = true

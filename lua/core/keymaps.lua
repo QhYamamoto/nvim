@@ -4,6 +4,7 @@ local keymap = vim.keymap
 
 -- general
 keymap.set({ "i", "v", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set({ "i", "v", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊｋ" })
 keymap.set("i", "ppp", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set({ "n", "v" }, "d", '"_d') -- prevent to yank on delete
