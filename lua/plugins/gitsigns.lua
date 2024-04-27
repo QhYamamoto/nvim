@@ -44,4 +44,12 @@ return {
 			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
 		end,
 	},
+	config = function()
+		require("gitsigns").setup({
+			current_line_blame = true,
+			current_line_blame_opts = {
+				delay = 500,
+			},
+		})
+	end,
 }
