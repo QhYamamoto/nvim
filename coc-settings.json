@@ -1,0 +1,14 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "coc.source.file.ignoreHidden": false,
+  "inlayHint.enable": false,
+  "inlayHint.display": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportArgumentType": "none",
+    "reportOptionalMemberAccess": "none",
+    "reportPossiblyUnboundVariable": "none"
+  }
+}
