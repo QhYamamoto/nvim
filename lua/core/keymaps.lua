@@ -3,9 +3,9 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- general
-keymap.set({ "i", "v", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-keymap.set({ "i", "v", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊｋ" })
-keymap.set("i", "ppp", "<ESC>pa", { desc = "Paste." })
+keymap.set({ "i", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set({ "i", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊｋ" })
+keymap.set("i", "<C-v>", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set({ "n", "v" }, "d", '"_d') -- prevent to yank on delete
 
@@ -17,9 +17,9 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 
 -- shortcuts to ensure compatibility with other editors
 keymap.set("n", "<leader>bp", "<cmd>bprev<CR>", { desc = "Jump to previous buffer" })
-keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Store" })
-keymap.set({ "n", "i", "v" }, "<C-z>", "<cmd>u<CR>", { desc = "Undo" })
-keymap.set({ "n", "i", "v" }, "<C-y>", "<cmd>red<CR>", { desc = "Redo" })
+keymap.set({ "n", "i" }, "<C-s>", "<cmd>silent! w<CR>", { desc = "Store" })
+keymap.set({ "n", "i", "v" }, "<C-z>", "<cmd>silent! u<CR>", { desc = "Undo" })
+keymap.set({ "n", "i", "v" }, "<C-y>", "<cmd>silent! redo<CR>", { desc = "Redo" })
 keymap.set({ "n", "i", "v" }, "<C-w>", "<cmd>bd<CR>", { desc = "Delete current buffer" })
 keymap.set("n", "<tab>", "<cmd>><CR>", { desc = "Incriment indent level" })
 keymap.set({ "n", "i" }, "<S-Tab>", "<cmd><<CR>", { desc = "Decriment indent level" })
