@@ -15,7 +15,8 @@ return {
     local opts = { noremap = true, silent = true }
 
     -- <leader>d で定義元へジャンプ
-    keymap.set('n', '<M-right>', '<Plug>(coc-definition)', opts)
+    keymap.set('n', '<F12>', '<Plug>(coc-definition)', opts)
+    keymap.set('n', "<M-right>", '<C-I>', opts)
     keymap.set('n', '<M-left>', '<C-o>', opts)
 
     -- <leader>h でドキュメント表示
@@ -30,32 +31,42 @@ return {
     -- Make <CR> to accept selected completion item or notify coc.nvim to format
     -- <C-g>u breaks current undo, please make your own choice
     keymap.set("i", "<C-n>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-n>"]], opts)
-    -- keymap.set('i', '`', function()
-    --   return vim.fn['coc#pum#next'](1)
-    -- end, opts)
-    -- keymap.set("i", "<Tab>",
-    --   function()
-    --     if vim.fn['coc#pum#visible']() then
-    --       return vim.fn['coc#pum#next'](1)
-    --     end
-    --     if check_back_space() then
-    --       return vim.fn['coc#refresh']()
-    --     end
-    --     return "<Tab>"
-    --   end
-    --   , { noremap = true, expr = true })
-    -- keymap.set("i", "<S-Tab>", function()
-    --   if vim.fn['coc#pum#visible']() then
-    --     return vim.fn['coc#pum#prev'](1)
-    --   end
-    --   return "<S-Tab>"
-    -- end, opts)
-    -- keymap.set("i", "<CR>", function()
-    --   if vim.fn['coc#pum#visible']() then
-    --     return vim.fn['coc#pum#confirm']();
-    --   end
-    --   return "\r"
-    -- end, opts)
+
+    -- Use `[g` and `]g` to navigate diagnostics
+    -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+    keymap.set("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
+    keymap.set("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
+
+    -- Use K to show documentation in preview window
+    function _G.show_docs()
+      local cw = vim.fn.expand('<cword>')
+      if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+      elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+      else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+      end
+    end
+
+    keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
+
+    -- nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vim.api.nvim_set_keymap('n', '<C-f>', 'coc#float#has_scroll() ? coc#float#scroll(1) : "\\<C-f>"',
+      { noremap = true, expr = true, nowait = true })
+
+    -- nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    vim.api.nvim_set_keymap('n', '<C-b>', 'coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"',
+      { noremap = true, expr = true, nowait = true })
+
+    -- inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    vim.api.nvim_set_keymap('i', '<C-f>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\<cr>" : "\\<Right>"',
+      { noremap = true, expr = true, nowait = true })
+
+    -- inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vim.api.nvim_set_keymap('i', '<C-b>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\<cr>" : "\\<Left>"',
+      { noremap = true, expr = true, nowait = true })
+
     -- color highlight
     vim.api.nvim_set_hl(0, "@parameter", { fg = 0x306b72 });
     vim.api.nvim_set_hl(0, "@type", { fg = 0x729de3 });

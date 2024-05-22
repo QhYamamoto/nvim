@@ -10,5 +10,8 @@
     "reportArgumentType": "none",
     "reportOptionalMemberAccess": "none",
     "reportPossiblyUnboundVariable": "none"
+  },
+  "markdownlint.config": {
+    "line-length": false
   }
 }
