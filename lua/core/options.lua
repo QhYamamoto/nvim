@@ -1,5 +1,4 @@
-vim.cmd("let g:netrw_liststyle = 3")
-vim.cmd("let g:gruvbox_material_transparent_background = 1")
+vim.opt.title = true
 
 -- register autocmds
 vim.api.nvim_create_augroup("lua", {})

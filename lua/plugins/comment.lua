@@ -21,10 +21,5 @@ return {
         block = "<S-M-a>",
       }
     })
-
-    -- -- Toggle linewise comment
-    -- vim.keymap.set({ "n", "i", "x" }, "<C-_>", api.toggle.linewise.current, { desc = "Toggle line comment" })
-    -- -- Toggle blockwise comment
-    -- vim.keymap.set({ "n", "i", "x" }, "<S-M-a>", api.toggle.blockwise.current, { desc = "Toggle block comment" })
   end,
 }
