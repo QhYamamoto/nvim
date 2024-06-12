@@ -5,6 +5,7 @@ return {
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
+  run = ":TSUpdate",
   config = function()
     -- import nvim-treesitter plugin
     local treesitter = require("nvim-treesitter.configs")
@@ -44,6 +45,7 @@ return {
         "vimdoc",
         "c",
         "vue",
+        "php",
       },
       incremental_selection = {
         enable = true,
