@@ -11,9 +11,43 @@ return {
     local opts = function(desc)
       return { desc = desc, silent = true }
     end
+    -- scripts to restore last closed buffer
+    local last_closed_buffer_num = nil
+    local last_closed_buffer_path = nil
+
+    local function on_buf_delete(args)
+      local buf = args.buf
+      if vim.api.nvim_buf_is_valid(buf) then
+        last_closed_buffer_num = buf
+        last_closed_buffer_path = vim.api.nvim_buf_get_name(buf)
+      end
+    end
+
+    vim.api.nvim_create_autocmd('BufDelete', {
+      callback = on_buf_delete,
+    })
+
+    local function restore_last_closed_buffer()
+      if last_closed_buffer_num and vim.api.nvim_buf_is_valid(last_closed_buffer_num) then
+        vim.cmd('badd ' .. last_closed_buffer_path)
+        vim.cmd('buffer ' .. last_closed_buffer_num)
+        last_closed_buffer_num = nil
+        last_closed_buffer_path = nil
+      else
+        print('No buffer to restore')
+      end
+    end
+
     -- custom keymaps
-    keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts("Go to previous buffer"))
-    keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts("Go to next buffer"))
+    keymap.set(
+      'n',
+      '<leader>u',
+      restore_last_closed_buffer,
+      { desc = "restore last closed buffer", noremap = true, silent = true }
+    )
+
+    keymap.set("n", "<A-h>", "<Cmd>BufferPrevious<CR>", opts("Go to previous buffer"))
+    keymap.set("n", "<A-l>", "<Cmd>BufferNext<CR>", opts("Go to next buffer"))
 
     keymap.set("n", "<leader>1", "<Cmd>BufferGoto 1<CR>", opts("Go to buffer 1"))
     keymap.set("n", "<leader>2", "<Cmd>BufferGoto 2<CR>", opts("Go to buffer 2"))
