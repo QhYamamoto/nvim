@@ -7,7 +7,9 @@ keymap.set({ "i", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set({ "i", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊｋ" })
 keymap.set("i", "<C-v>", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-keymap.set({ "n", "v" }, "d", '"_d') -- prevent to yank on delete
+keymap.set({ "n", "v" }, "d", '"_d')                                  -- prevent to yank on delete
+keymap.set('n', '<C-f>', '<C-w>w', { noremap = true, silent = true }) -- jump to floating window
+
 
 -- window
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
