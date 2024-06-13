@@ -1,10 +1,15 @@
 return {
-  "sainnhe/gruvbox-material",
+  "navarasu/onedark.nvim",
   priority = 1000,
   config = function()
-    vim.cmd("colorscheme gruvbox-material")
-  end,
-  init = function()
-    vim.cmd("let g:gruvbox_material_transparent_background = 1")
+    local onedark = require("onedark")
+
+    onedark.setup({
+      style = "darker",
+      transparent = true,
+      term_colors = true,
+    })
+
+    onedark.load()
   end,
 }
