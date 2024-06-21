@@ -41,7 +41,7 @@ return {
     -- custom keymaps
     keymap.set(
       'n',
-      '<leader>u',
+      '<leader>br',
       restore_last_closed_buffer,
       { desc = "restore last closed buffer", noremap = true, silent = true }
     )
