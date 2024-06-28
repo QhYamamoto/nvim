@@ -8,6 +8,9 @@ return {
       style = "darker",
       transparent = true,
       term_colors = true,
+      highlights = {
+        LineNr = { fg = '#ABB2BF' },
+      },
     })
 
     onedark.load()
