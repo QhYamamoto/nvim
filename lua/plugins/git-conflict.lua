@@ -4,10 +4,12 @@ return {
   config = function()
     local git_conflict = require("git-conflict");
 
+    local keymap = vim.keymap;
+
     git_conflict.setup({
       default_mappings = {
-        next = { "[", "x" },
-        prev = { "]", "x" },
+        next = ']x',
+        prev = '[x',
       },
     })
   end,
