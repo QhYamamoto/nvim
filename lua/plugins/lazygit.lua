@@ -16,4 +16,9 @@ return {
   keys = {
     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
   },
+  init = function()
+    local lazy_git_config_file_path = vim.fn.expand("~/.config/nvim/lazygit/config.yml")
+    vim.g.lazygit_use_custom_config_file_path = 1
+    vim.g.lazygit_config_file_path = lazy_git_config_file_path
+  end
 }
