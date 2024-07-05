@@ -1,28 +1,7 @@
-vim.opt.title = true
-
--- register autocmds
-vim.api.nvim_create_augroup("lua", {})
-
-vim.api.nvim_create_autocmd({
-  "InsertLeave",
-  "CmdlineLeave",
-}, {
-  group = "lua",
-  callback = function()
-    local uv = vim.loop
-    local home = os.getenv("HOME")
-    local script_path = home .. "/.config/nvim/zenhan/zenhan.sh"
-
-    uv.spawn("bash", {
-      args = { script_path },
-      stdio = { nil, nil, nil },
-    })
-  end,
-})
-
 -- vim options
 local opt = vim.opt
 
+opt.title = true
 opt.relativenumber = true
 opt.number = true
 
