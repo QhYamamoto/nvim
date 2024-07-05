@@ -9,7 +9,14 @@ vim.api.nvim_create_autocmd({
 }, {
   group = "lua",
   callback = function()
-    os.execute("$zenhan 0 > /tmp/output 2>&1")
+    local uv = vim.loop
+    local home = os.getenv("HOME")
+    local script_path = home .. "/.config/nvim/zenhan/zenhan.sh"
+
+    uv.spawn("bash", {
+      args = { script_path },
+      stdio = { nil, nil, nil },
+    })
   end,
 })
 
