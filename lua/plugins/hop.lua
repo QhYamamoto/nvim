@@ -5,7 +5,7 @@ return {
     local hop = require("hop")
 
     hop.setup({
-      keys = "etovxqpdygfblzhckisuran"
+      keys = "1234567890fdsvcxrew"
     })
 
     local keymap = vim.keymap
