@@ -2,6 +2,17 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- function for repeat function
+local function repeat_func(func, count)
+  if count == 0 then
+    func()
+    return
+  end
+  for _ = 1, count do
+    func()
+  end
+end
+
 -- general
 keymap.set({ "i", "c" }, "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set({ "i", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊｋ" })
@@ -35,3 +46,18 @@ keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
 -- for terminal
 keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true })
+
+keymap.set("n", 'J', function()
+    repeat_func(function()
+      local current_line = vim.api.nvim_get_current_line()
+      local next_line = vim.api.nvim_buf_get_lines(0, vim.fn.line('.') + 1 - 1, vim.fn.line('.') + 2 - 1, false)[1]
+      if next_line then
+        local next_line_trimmed = next_line:gsub("^%s+", "")
+        vim.api.nvim_set_current_line(current_line .. next_line_trimmed)
+        vim.api.nvim_buf_set_lines(0, vim.fn.line('.') + 1 - 1, vim.fn.line('.') + 1, false, {})
+      end
+    end, vim.v.count or 1
+    )
+  end,
+  { noremap = true, silent = true }
+)
