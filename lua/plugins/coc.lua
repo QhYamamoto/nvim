@@ -23,7 +23,7 @@ return {
     keymap.set('n', '<leader>gh', ':call CocAction("doHover")<CR>', opts)
 
 
-    local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
+    opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
     keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()',
       opts)
     keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
