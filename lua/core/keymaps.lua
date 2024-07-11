@@ -30,6 +30,8 @@ keymap.set("i", "<A-Down>", "<ESC>ddpi", { desc = "Swap current line with line b
 keymap.set({ "n", "i" }, "<A-Up>", "<Up>ddp<Up>", { desc = "Swap current line with line above" })
 keymap.set("i", "<A-Up>", "<ESC><Up>ddp<Up>i", { desc = "Swap current line with line above" })
 keymap.set("n", "<C-a>", "gg^vG$", { desc = "Select whole text" })
+keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
 -- for terminal
 keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true })
