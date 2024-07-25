@@ -19,7 +19,7 @@ keymap.set({ "i", "c" }, "ｊｋ", "<ESC>", { desc = "Exit insert mode with ｊ�
 keymap.set("i", "<C-v>", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set({ "n", "v" }, "d", '"_d')                                  -- prevent to yank on delete
-keymap.set('n', '<C-c>', '<C-w>w', { noremap = true, silent = true }) -- jump to floating window
+keymap.set("n", "<C-c>", "<C-w>w", { noremap = true, silent = true }) -- jump to floating window
 
 
 -- window
@@ -41,20 +41,23 @@ keymap.set("i", "<A-Down>", "<ESC>ddpi", { desc = "Swap current line with line b
 keymap.set({ "n", "i" }, "<A-Up>", "<Up>ddp<Up>", { desc = "Swap current line with line above" })
 keymap.set("i", "<A-Up>", "<ESC><Up>ddp<Up>i", { desc = "Swap current line with line above" })
 keymap.set("n", "<C-a>", "gg^vG$", { desc = "Select whole text" })
-keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
-keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, silent = true, expr = true })
+keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, silent = true, expr = true })
+keymap.set("n", "<C-e>", "$", { noremap = true, silent = true })
+keymap.set("i", "<C-e>", "<ESC>$a", { noremap = true, silent = true })
+
 
 -- for terminal
-keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true })
+keymap.set("t", "jk", "<C-\\><C-n>", { noremap = true })
 
-keymap.set("n", 'J', function()
+keymap.set("n", "J", function()
     repeat_func(function()
       local current_line = vim.api.nvim_get_current_line()
-      local next_line = vim.api.nvim_buf_get_lines(0, vim.fn.line('.') + 1 - 1, vim.fn.line('.') + 2 - 1, false)[1]
+      local next_line = vim.api.nvim_buf_get_lines(0, vim.fn.line(".") + 1 - 1, vim.fn.line(".") + 2 - 1, false)[1]
       if next_line then
         local next_line_trimmed = next_line:gsub("^%s+", "")
         vim.api.nvim_set_current_line(current_line .. next_line_trimmed)
-        vim.api.nvim_buf_set_lines(0, vim.fn.line('.') + 1 - 1, vim.fn.line('.') + 1, false, {})
+        vim.api.nvim_buf_set_lines(0, vim.fn.line(".") + 1 - 1, vim.fn.line(".") + 1, false, {})
       end
     end, vim.v.count or 1
     )
