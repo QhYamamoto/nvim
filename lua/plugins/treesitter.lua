@@ -7,6 +7,7 @@ return {
   },
   run = ":TSUpdate",
   config = function()
+    vim.treesitter.language.register("bash", "zsh")
     -- import nvim-treesitter plugin
     local treesitter = require("nvim-treesitter.configs")
 
