@@ -20,6 +20,7 @@ keymap.set("i", "<C-v>", "<ESC>pa", { desc = "Paste." })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set({ "n", "v" }, "d", '"_d')                                  -- prevent to yank on delete
 keymap.set("n", "<C-c>", "<C-w>w", { noremap = true, silent = true }) -- jump to floating window
+keymap.set("n", "<leader>q", "<CMD>qa<CR>")
 
 
 -- window
