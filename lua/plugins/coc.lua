@@ -3,24 +3,24 @@ return {
   branch = "release",
   config = function()
     function _G.check_back_space()
-      local col = vim.fn.col('.') - 1
-      return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+      local col = vim.fn.col(".") - 1
+      return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
     end
 
     -- key bind
     vim.o.hidden = true
-    vim.api.nvim_set_keymap('x', '<LEADER>f', "<Plug>(coc-format-selected)", { noremap = false })
+    vim.api.nvim_set_keymap("x", "<LEADER>f", "<Plug>(coc-format-selected)", { noremap = false })
 
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
 
     -- <LEADER>d で定義元へジャンプ
-    keymap.set('n', '<F12>', '<Plug>(coc-definition)', opts)
-    keymap.set('n', "<M-right>", '<C-I>', opts)
-    keymap.set('n', '<M-left>', '<C-o>', opts)
+    keymap.set("n", "<F12>", "<Plug>(coc-definition)", opts)
+    keymap.set("n", "<M-right>", "<C-I>", opts)
+    keymap.set("n", "<M-left>", "<C-o>", opts)
 
     -- <LEADER>h でドキュメント表示
-    keymap.set('n', '<LEADER>gh', ':call CocAction("doHover")<CR>', opts)
+    keymap.set("n", "<LEADER>gh", ':call CocAction("doHover")<CR>', opts)
 
 
     opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
@@ -39,28 +39,28 @@ return {
 
     -- Use K to show documentation in preview window
     function _G.show_docs()
-      local cw = vim.fn.expand('<cword>')
-      if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-      elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
+      local cw = vim.fn.expand("<cword>")
+      if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command("h " .. cw)
+      elseif vim.api.nvim_eval("coc#rpc#ready()") then
+        vim.fn.CocActionAsync("doHover")
       else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+        vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
       end
     end
 
-    keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
+    keymap.set("n", "K", "<CMD>lua _G.show_docs()<CR>", { silent = true })
 
-    vim.api.nvim_set_keymap('n', '<C-f>', 'coc#float#has_scroll() ? coc#float#scroll(1) : "\\<C-f>"',
+    vim.api.nvim_set_keymap("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "\\<C-f>"',
       { noremap = true, expr = true, nowait = true })
 
-    vim.api.nvim_set_keymap('n', '<C-b>', 'coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"',
+    vim.api.nvim_set_keymap("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"',
       { noremap = true, expr = true, nowait = true })
 
-    vim.api.nvim_set_keymap('i', '<C-f>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\<CR>" : "\\<Right>"',
+    vim.api.nvim_set_keymap("i", "<C-f>", 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\<CR>" : "\\<Right>"',
       { noremap = true, expr = true, nowait = true })
 
-    vim.api.nvim_set_keymap('i', '<C-b>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\<CR>" : "\\<Left>"',
+    vim.api.nvim_set_keymap("i", "<C-b>", 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\<CR>" : "\\<Left>"',
       { noremap = true, expr = true, nowait = true })
 
     -- color highlight

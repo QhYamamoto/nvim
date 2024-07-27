@@ -22,4 +22,4 @@ require("lazy").setup({ { import = "plugins" }, }, {
 })
 
 -- clear NormalFloat highlight group
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = "" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "" })

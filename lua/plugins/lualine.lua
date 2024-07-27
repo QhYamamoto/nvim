@@ -10,10 +10,10 @@ return {
     local transparent = require("transparent")
 
     local function command_display()
-      if vim.fn.reg_recording() ~= '' then
-        return 'Recording @' .. vim.fn.reg_recording()
+      if vim.fn.reg_recording() ~= "" then
+        return "Recording @" .. vim.fn.reg_recording()
       else
-        return ''
+        return ""
       end
     end
 
@@ -40,19 +40,19 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {}
       },
     })
 
-    vim.api.nvim_create_augroup('LualineCmdline', { clear = true })
-    vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' },
+    vim.api.nvim_create_augroup("LualineCmdline", { clear = true })
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" },
       {
-        group = 'LualineCmdline',
+        group = "LualineCmdline",
         callback = function()
-          require('lualine').refresh()
+          require("lualine").refresh()
         end
       })
   end,

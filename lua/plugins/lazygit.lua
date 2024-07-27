@@ -11,7 +11,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  -- setting the keybinding for LazyGit with 'keys' is recommended in
+  -- setting the keybinding for LazyGit with "keys" is recommended in
   -- order to load the plugin when the command is run for the first time
   keys = {
     { "<LEADER>lg", "<CMD>LazyGit<CR>", desc = "Open lazy git" },

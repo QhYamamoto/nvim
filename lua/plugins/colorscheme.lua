@@ -9,7 +9,7 @@ return {
       transparent = true,
       term_colors = true,
       highlights = {
-        LineNr = { fg = '#ABB2BF' },
+        LineNr = { fg = "#ABB2BF" },
       },
     })
 
