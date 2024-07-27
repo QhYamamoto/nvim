@@ -8,11 +8,11 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap.set("n", "<LEADER>ee", "<CMD>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
     keymap.set(
       "n",
-      "<leader>ef",
-      "<cmd>NvimTreeFindFileToggle<CR>",
+      "<LEADER>ef",
+      "<CMD>NvimTreeFindFileToggle<CR>",
       { desc = "Toggle file explorer on current file" }
     )
 

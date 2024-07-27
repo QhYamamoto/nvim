@@ -8,8 +8,8 @@ return {
 
     git_conflict.setup({
       default_mappings = {
-        next = ']x',
-        prev = '[x',
+        next = "]x",
+        prev = "[x",
       },
     })
   end,

@@ -14,7 +14,7 @@ return {
   -- setting the keybinding for LazyGit with 'keys' is recommended in
   -- order to load the plugin when the command is run for the first time
   keys = {
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
+    { "<LEADER>lg", "<CMD>LazyGit<CR>", desc = "Open lazy git" },
   },
   init = function()
     local lazy_git_config_file_path = vim.fn.expand("~/.config/nvim/lazygit/config.yml")

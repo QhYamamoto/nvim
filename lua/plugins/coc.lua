@@ -9,18 +9,18 @@ return {
 
     -- key bind
     vim.o.hidden = true
-    vim.api.nvim_set_keymap('x', '<leader>f', "<Plug>(coc-format-selected)", { noremap = false })
+    vim.api.nvim_set_keymap('x', '<LEADER>f', "<Plug>(coc-format-selected)", { noremap = false })
 
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
 
-    -- <leader>d で定義元へジャンプ
+    -- <LEADER>d で定義元へジャンプ
     keymap.set('n', '<F12>', '<Plug>(coc-definition)', opts)
     keymap.set('n', "<M-right>", '<C-I>', opts)
     keymap.set('n', '<M-left>', '<C-o>', opts)
 
-    -- <leader>h でドキュメント表示
-    keymap.set('n', '<leader>gh', ':call CocAction("doHover")<CR>', opts)
+    -- <LEADER>h でドキュメント表示
+    keymap.set('n', '<LEADER>gh', ':call CocAction("doHover")<CR>', opts)
 
 
     opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
@@ -57,10 +57,10 @@ return {
     vim.api.nvim_set_keymap('n', '<C-b>', 'coc#float#has_scroll() ? coc#float#scroll(0) : "\\<C-b>"',
       { noremap = true, expr = true, nowait = true })
 
-    vim.api.nvim_set_keymap('i', '<C-f>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\<cr>" : "\\<Right>"',
+    vim.api.nvim_set_keymap('i', '<C-f>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(1)\\<CR>" : "\\<Right>"',
       { noremap = true, expr = true, nowait = true })
 
-    vim.api.nvim_set_keymap('i', '<C-b>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\<cr>" : "\\<Left>"',
+    vim.api.nvim_set_keymap('i', '<C-b>', 'coc#float#has_scroll() ? "\\<c-r>=coc#float#scroll(0)\\<CR>" : "\\<Left>"',
       { noremap = true, expr = true, nowait = true })
 
     -- color highlight

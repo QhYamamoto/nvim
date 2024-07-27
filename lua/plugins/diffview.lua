@@ -3,8 +3,8 @@ return {
   config = function()
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>gdo", "<cmd>:DiffviewOpen<CR>", { desc = "Open diff view (HEAD~1..HEAD)" })
-    keymap.set("n", "<leader>gdc", "<cmd>:DiffviewClose<CR>", { desc = "Close diff view" })
+    keymap.set("n", "<LEADER>gdo", "<CMD>:DiffviewOpen<CR>", { desc = "Open diff view (HEAD~1..HEAD)" })
+    keymap.set("n", "<LEADER>gdc", "<CMD>:DiffviewClose<CR>", { desc = "Close diff view" })
 
     local function get_git_rev_from_clipboard()
       local rev = vim.fn.getreg('+') -- get string from clipboard
@@ -28,8 +28,8 @@ return {
 
     keymap.set(
       'n',
-      '<Leader>gdr',
-      '<cmd>lua DiffViewOpenWithGitRev()<CR>',
+      '<LEADER>gdr',
+      '<CMD>lua DiffViewOpenWithGitRev()<CR>',
       { desc = "Open diff view ({HashId on clipboard}~1..{HashID on clipboard})", noremap = true, silent = true }
     )
   end,

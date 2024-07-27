@@ -19,10 +19,10 @@ return {
 
     -- Set menu
     dashboard.section.buttons.val = {
-      dashboard.button("<Leader>fp", "󰱼 > Find Project", "<cmd>Telescope project<CR>"),
-      dashboard.button("<Leader>ff", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
-      dashboard.button("<Leader>fs", " > Find Word", "<cmd>Telescope live_grep<CR>"),
-      dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
+      dashboard.button("<LEADER>fp", "󰱼 > Find Project", "<CMD>Telescope project<CR>"),
+      dashboard.button("<LEADER>ff", "󰱼 > Find File", "<CMD>Telescope find_files<CR>"),
+      dashboard.button("<LEADER>fs", " > Find Word", "<CMD>Telescope live_grep<CR>"),
+      dashboard.button("q", " > Quit NVIM", "<CMD>qa<CR>"),
     }
 
     -- Send config to alpha
