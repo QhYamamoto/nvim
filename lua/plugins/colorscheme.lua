@@ -14,5 +14,7 @@ return {
     })
 
     onedark.load()
+
+    vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#535965', bg = 'NONE' })
   end,
 }
