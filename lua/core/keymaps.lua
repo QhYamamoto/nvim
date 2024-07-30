@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.o.mouse = 'a'
 
 local keymap = vim.keymap
 
@@ -28,6 +29,10 @@ keymap.set("n", "<LEADER>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<LEADER>sh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<LEADER>sx", "<CMD>close<CR>", { desc = "Close current split" })
 keymap.set("n", "<LEADER>se", "<C-w>=", { desc = "Make splits equal size" })
+keymap.set("n", "<S-Left>", '<C-W><', { noremap = true, silent = true })
+keymap.set("n", "<S-Right>", '<C-W>>', { noremap = true, silent = true })
+keymap.set("n", "<S-Up>", '<C-W>-', { noremap = true, silent = true })
+keymap.set("n", "<S-Down>", '<C-W>+', { noremap = true, silent = true })
 
 -- shortcuts to ensure compatibility with other editors
 keymap.set("n", "<LEADER>bp", "<CMD>bprev<CR>", { desc = "Jump to previous buffer" })
