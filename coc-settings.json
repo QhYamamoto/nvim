@@ -11,6 +11,7 @@
     "reportOptionalMemberAccess": "none",
     "reportPossiblyUnboundVariable": "none"
   },
+  "powershell.integratedConsole.showOnStartup": false,
   "markdownlint.config": {
     "line-length": false
   }
