@@ -47,6 +47,8 @@ return {
         "c",
         "vue",
         "php",
+        "powershell",
+        "sql",
       },
       incremental_selection = {
         enable = true,
